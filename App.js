@@ -10,7 +10,8 @@ import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View} from 'react-native';
 
 // 组件
-import LotsOfGreetings from './components/LotsOfGreetings'
+import LotsOfGreetings from './components/LotsOfGreetings';
+import Blink from './components/Blink';
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
@@ -25,6 +26,9 @@ export default class App extends Component {
       <View style={styles.container}>
         <LotsOfGreetings />
         <Text style={styles.welcome}>Hello World</Text>
+        <Blink text="I love to blink" />
+        <Blink text="I love to blink too
+        " />
       </View>
     );
   }

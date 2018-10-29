@@ -5,9 +5,12 @@
  * @format
  * @flow
  */
-
+// 库
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View} from 'react-native';
+
+// 组件
+import LotsOfGreetings from './components/LotsOfGreetings'
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
@@ -20,6 +23,7 @@ export default class App extends Component {
   render() {
     return (
       <View style={styles.container}>
+        <LotsOfGreetings />
         <Text style={styles.welcome}>Hello World</Text>
       </View>
     );

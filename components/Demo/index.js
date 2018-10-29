@@ -4,8 +4,8 @@ import { StyleSheet, Text, View } from 'react-native';
 export default class Demo extends Component {
   render() {
     return (
-      <View>
-        <Text style={styles.demo}>demo component</Text>
+      <View style={styles.demo}>
+        <Text>demo component</Text>
       </View>
     )
   }

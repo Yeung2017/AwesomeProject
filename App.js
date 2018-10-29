@@ -7,7 +7,7 @@
  */
 // 库
 import React, { Component } from 'react';
-import { Platform, StyleSheet, Text, View } from 'react-native';
+import { Platform, StyleSheet, Text, View, Alert, Button } from 'react-native';
 
 // 组件
 import LotsOfGreetings from './components/LotsOfGreetings';
@@ -22,6 +22,11 @@ const instructions = Platform.select({
 });
 
 export default class App extends Component {
+
+  hanldeButtonPress = () => {
+    Alert.alert('You tapped button')
+  }
+
   render() {
     return (
       <View style={ styles.container }>
@@ -30,6 +35,10 @@ export default class App extends Component {
         <Text style={ styles.welcome }>Hello World</Text>
         <Blink text="I love to blink" />
         <Blink text="I love to blink too" />
+        <Button
+          onPress={ this.hanldeButtonPress }
+          title="PRESS ME"
+          color="#841584" />
       </View>
     );
   }

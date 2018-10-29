@@ -6,8 +6,8 @@
  * @flow
  */
 // 库
-import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View} from 'react-native';
+import React, { Component } from 'react';
+import { Platform, StyleSheet, Text, View } from 'react-native';
 
 // 组件
 import LotsOfGreetings from './components/LotsOfGreetings';
@@ -23,12 +23,11 @@ const instructions = Platform.select({
 export default class App extends Component {
   render() {
     return (
-      <View style={styles.container}>
+      <View style={ styles.container }>
         <LotsOfGreetings />
-        <Text style={styles.welcome}>Hello World</Text>
+        <Text style={ styles.welcome }>Hello World</Text>
         <Blink text="I love to blink" />
-        <Blink text="I love to blink too
-        " />
+        <Blink text="I love to blink too" />
       </View>
     );
   }

@@ -10,10 +10,10 @@ import React, { Component } from 'react';
 import { StyleSheet } from 'react-native';
 
 // 组件
-import MovieList from './components/MovieList';
+import MovieList2 from './components/MovieList2';
 export default class App extends Component {
   render() {
-    return (<MovieList />);
+    return (<MovieList2 />);
   }
 }
 

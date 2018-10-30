@@ -7,7 +7,7 @@
  */
 // 库
 import React, { Component } from 'react';
-import { Platform, StyleSheet, Text, View, Alert, Button, ScrollView } from 'react-native';
+import { Platform, StyleSheet, Text, View, Alert, Button, ScrollView, SectionList } from 'react-native';
 
 // 组件
 import LotsOfGreetings from './components/LotsOfGreetings';
@@ -58,6 +58,16 @@ export default class App extends Component {
           onPress={ this.hanldeButtonPress }
           title="PRESS ME"
           color="#841584" />
+        <SectionList
+          sections={ [
+            { title: "Title1", data: ["item1", "item2"] },
+            { title: "Title2", data: ["item3", "item4"] },
+            { title: "Title3", data: ["item5", "item6"] }
+          ] }
+          keyExtractor={ (item, index) => item + index }
+          renderSectionHeader={ ({ section: { title } }) => (<Text style={ { fontWeight: "bold" } }>{ title }</Text>) }
+          renderItem={ ({ item, index, section }) => (<Text key={ index }>{ item }</Text>) }
+        />
       </ScrollView>
     );
   }

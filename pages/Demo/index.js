@@ -4,7 +4,7 @@ import { StyleSheet, Text, View } from 'react-native';
 export default class Demo extends Component {
   render() {
     return (
-      <View style={styles.demo}>
+      <View style={styles.container}>
         <Text>demo page</Text>
       </View>
     )
@@ -12,7 +12,7 @@ export default class Demo extends Component {
 }
 
 const styles = StyleSheet.create({
-  demo: {
-    color: 'red'
+  container: {
+    flex: 1
   },
 });

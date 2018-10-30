@@ -26,7 +26,6 @@ const len = 50000;
 const flatListData = new Array(len).fill('').map((item, index)=> ({
   key: `item${len - index}`
 }));
-
 export default class App extends Component {
 
   hanldeButtonPress = () => {

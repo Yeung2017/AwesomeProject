@@ -7,7 +7,7 @@
  */
 // 库
 import React, { Component } from 'react';
-import { Platform, StyleSheet, Text, View, Alert, Button, ScrollView, SectionList } from 'react-native';
+import { Platform, StyleSheet, Text, View, Alert, Button, ScrollView, SectionList, FlatList } from 'react-native';
 
 // 组件
 import LotsOfGreetings from './components/LotsOfGreetings';
@@ -21,6 +21,12 @@ const instructions = Platform.select({
     'Shake or press menu button for dev menu',
 });
 
+const len = 50000;
+
+const flatListData = new Array(len).fill('').map((item, index)=> ({
+  key: `item${len - index}`
+}));
+
 export default class App extends Component {
 
   hanldeButtonPress = () => {
@@ -29,65 +35,29 @@ export default class App extends Component {
 
   render() {
     return (
-      <ScrollView>
-        <PizzaTranslator />
-        <LotsOfGreetings />
-        <LotsOfGreetings />
-        <LotsOfGreetings />
-        <LotsOfGreetings />
-        <LotsOfGreetings />
-        <LotsOfGreetings />
-        <LotsOfGreetings />
-        <LotsOfGreetings />
-        <LotsOfGreetings />
-        <LotsOfGreetings />
-        <LotsOfGreetings />
-        <LotsOfGreetings />
-        <LotsOfGreetings />
-        <LotsOfGreetings />
-        <LotsOfGreetings />
-        <LotsOfGreetings />
-        <LotsOfGreetings />
-        <LotsOfGreetings />
-        <LotsOfGreetings />
-        <LotsOfGreetings />
-        <Text style={ styles.welcome }>Hello World</Text>
-        <Blink text="I love to blink" />
-        <Blink text="I love to blink too" />
-        <Button
-          onPress={ this.hanldeButtonPress }
-          title="PRESS ME"
-          color="#841584" />
-        <SectionList
-          sections={ [
-            { title: "Title1", data: ["item1", "item2"] },
-            { title: "Title2", data: ["item3", "item4"] },
-            { title: "Title3", data: ["item5", "item6"] }
-          ] }
-          keyExtractor={ (item, index) => item + index }
-          renderSectionHeader={ ({ section: { title } }) => (<Text style={ { fontWeight: "bold" } }>{ title }</Text>) }
-          renderItem={ ({ item, index, section }) => (<Text key={ index }>{ item }</Text>) }
-        />
-      </ScrollView>
+      <View style={styles.container}>
+        <Text style={ styles.h2 }>FlatList</Text>
+        <FlatList data={ flatListData }
+          renderItem={ ({ item }) => {
+            return (<Text style={ styles.item }>{ item.key }</Text>)
+          }} />
+      </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    flex: 1
   },
-  welcome: {
+  h2: {
     fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
+    backgroundColor: '#eee'
   },
-  instructions: {
+  item: {
+    fontSize: 18,
     textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
+    height: 220,
+    borderBottomWidth: 1,
+  }
 });

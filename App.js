@@ -2,10 +2,11 @@ import React from 'react';
 import { View, Text } from 'react-native';
 import { createStackNavigator } from 'react-navigation';
 
-import HomeScreen from './pages/Home';
-import DetailsScreen from './pages/Details'
+import HomeScreen from './screens/Home';
+import DetailsScreen from './screens/Details';
+import ModalScreen from './screens/Modal';
 
-const RootStack = createStackNavigator(
+const MainStack = createStackNavigator(
   {
     Home: HomeScreen,
     Details: DetailsScreen
@@ -24,6 +25,14 @@ const RootStack = createStackNavigator(
     },
   }
 );
+
+const RootStack = createStackNavigator({
+  Main: MainStack,
+  MyModal: ModalScreen,
+},{
+  mode: 'modal',
+  headerMode: 'none',
+})
 
 export default class App extends React.Component {
   render() {

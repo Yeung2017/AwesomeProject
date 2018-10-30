@@ -7,8 +7,10 @@ export default class Home extends Component {
     title: 'Home',
     headerRight: (
       <Button
-        onPress={navigation.getParam('increaseCount')}
-        title="+1"
+        onPress={()=>{
+          navigation.navigate('MyModal')
+        }}
+        title="更多"
       />
     )
   })

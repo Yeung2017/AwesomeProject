@@ -7,7 +7,7 @@
  */
 // 库
 import React, { Component } from 'react';
-import { Platform, StyleSheet, Text, View, Alert, Button } from 'react-native';
+import { Platform, StyleSheet, Text, View, Alert, Button, ScrollView } from 'react-native';
 
 // 组件
 import LotsOfGreetings from './components/LotsOfGreetings';
@@ -29,8 +29,27 @@ export default class App extends Component {
 
   render() {
     return (
-      <View style={ styles.container }>
+      <ScrollView>
         <PizzaTranslator />
+        <LotsOfGreetings />
+        <LotsOfGreetings />
+        <LotsOfGreetings />
+        <LotsOfGreetings />
+        <LotsOfGreetings />
+        <LotsOfGreetings />
+        <LotsOfGreetings />
+        <LotsOfGreetings />
+        <LotsOfGreetings />
+        <LotsOfGreetings />
+        <LotsOfGreetings />
+        <LotsOfGreetings />
+        <LotsOfGreetings />
+        <LotsOfGreetings />
+        <LotsOfGreetings />
+        <LotsOfGreetings />
+        <LotsOfGreetings />
+        <LotsOfGreetings />
+        <LotsOfGreetings />
         <LotsOfGreetings />
         <Text style={ styles.welcome }>Hello World</Text>
         <Blink text="I love to blink" />
@@ -39,7 +58,7 @@ export default class App extends Component {
           onPress={ this.hanldeButtonPress }
           title="PRESS ME"
           color="#841584" />
-      </View>
+      </ScrollView>
     );
   }
 }

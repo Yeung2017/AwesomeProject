@@ -3,9 +3,15 @@ import { StyleSheet, Text, View, Button } from 'react-native';
 
 export default class Details extends Component {
   render() {
+    const { navigation } = this.props;
+    const itemId = navigation.getParam('itemId', 'NO-ID');
+    const otherParam = navigation.getParam('otherParam','some default value');
+
     return (
       <View style={ styles.container }>
         <Text>Details page</Text>
+        <Text>itemId: {JSON.stringify(itemId)}</Text>
+        <Text>otherParam: {JSON.stringify(otherParam)}</Text>
         <Button
           title="Go to Details... again"
           onPress={ () => this.props.navigation.push('Details') }

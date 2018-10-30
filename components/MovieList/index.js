@@ -5,7 +5,7 @@ export default class MovieList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isLoading: false,
+      isLoading: true,
       dataSource: []
     }
   }

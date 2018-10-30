@@ -20,7 +20,7 @@ const RootStack = createStackNavigator(
       headerTintColor: '#fff',
       headerTitleStyle: {
         fontWeight: '300',
-      },
+      }
     },
   }
 );

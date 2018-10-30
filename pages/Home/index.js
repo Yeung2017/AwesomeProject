@@ -3,14 +3,37 @@ import { StyleSheet, Text, View, Button } from 'react-native';
 
 export default class Home extends Component {
 
-  static navigationOptions = {
-    title: 'Home'
+  static navigationOptions = ({navigation}) => ({
+    title: 'Home',
+    headerRight: (
+      <Button
+        onPress={navigation.getParam('increaseCount')}
+        title="+1"
+      />
+    )
+  })
+
+  state = {
+    count: 0
+  }
+
+  increaseCount = () => {
+    this.setState(prevState=>({
+      count: prevState.count + 1
+    }))
+  }
+
+  componentDidMount() {
+    this.props.navigation.setParams({
+      increaseCount: this.increaseCount
+    })
   }
 
   render() {
     return (
       <View style={ styles.container }>
         <Text>Home page</Text>
+        <Text>{this.state.count}</Text>
         <Button
           title="Go to Details"
           onPress={ () => {

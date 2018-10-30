@@ -14,7 +14,7 @@ export default class MovieList2 extends Component {
   }
 
   fetchData = () => {
-    fetch(REQUEST_URL)
+    return fetch(REQUEST_URL)
       .then(res => res.json())
       .then(resJson => {
         this.setState({
@@ -22,6 +22,17 @@ export default class MovieList2 extends Component {
           data: resJson.movies
         })
       }).catch(() => { });
+  }
+
+  handleRefresh = () => {
+    this.setState({
+      loading: true
+    });
+    this.fetchData().then(()=>{
+      this.setState({
+        loading: false
+      });
+    })
   }
 
   componentDidMount() {
@@ -53,15 +64,14 @@ export default class MovieList2 extends Component {
   }
 
   render() {
-    if (this.state.loading) {
-      return this.renderLoadingView();
-    }
     return (
       <FlatList
         data={ this.state.data }
         renderItem={ this.renderMovie }
         style={ styles.list }
         keyExtractor={(item)=>item.title}
+        refreshing={this.state.loading}
+        onRefresh={this.handleRefresh}
       />
     );
   }

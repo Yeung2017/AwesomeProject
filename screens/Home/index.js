@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, Button } from 'react-native';
+import Icon from 'react-native-vector-icons/dist/FontAwesome';
 
 export default class Home extends Component {
 
@@ -34,6 +35,7 @@ export default class Home extends Component {
   render() {
     return (
       <View style={ styles.container }>
+      <Icon name="rocket" size={30} color="#900" />
         <Text>Home page</Text>
         <Text>{this.state.count}</Text>
         <Button
